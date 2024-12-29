@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+<span id="h">00</span>
+<span id="m">00</span>
+
+<span id="s">00</span>
+<span id="periode">AM</span>
+    </div>
+    <script>
+        $(document).ready(function(){
+            function showtime(){
+
+           
+            let d=new Date();
+            let h=d.getHours();
+            let m=d.getMinutes();
+            let s=d.getSeconds();
+            var periode="PM"
+
+            if (d==0){
+                d=12;
+            }
+            if(d>=12) {
+                periode="AM"
+            }
+            if(d>12){
+                d=d-12;
+            }
+            h=h<10?"0"+h:h;
+            m=m<10?"0"+m:m;
+             s=s<10?"0"+s:s;
+              $('#h').text(h);
+              $('#m').text(m);
+              $('#s').text(s);
+              $('#periode').text(periode);
+              setTimeout(showtime,1000);
+
+        } 
+        showtime();})
+    </script>
+</body>
+</html>
+    
+</body>
+</html>

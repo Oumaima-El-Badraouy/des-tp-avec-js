@@ -1,0 +1,25 @@
+{
+    "formation": "Développement Web",
+    "modules": [
+        {
+            "nom": "Introduction au HTML",
+            "duree": "20 heures",
+            "formateur": "John Doe"
+        },
+        {
+            "nom": "CSS Avancé",
+            "duree": "30 heures",
+            "formateur": "Jane Smith"
+        },
+        {
+            "nom": "JavaScript Basique",
+            "duree": "40 heures",
+            "formateur": "Mark Johnson"
+        }
+    ],
+    "informations": {
+        "lieu": "Casablanca",
+        "date_debut": "2024-05-01",
+        "date_fin": "2024-06-30"
+    }
+}

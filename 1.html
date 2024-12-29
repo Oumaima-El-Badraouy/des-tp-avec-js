@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(102, 90, 113);
+
+        }
+        .dis{
+            text-align: center;
+            display: flex;
+        }
+
+        .hy{
+            width: 40px;
+            max-height: max-content;
+
+        }
+        button{
+            background-color: blueviolet;
+            color: aliceblue;
+            width: 40px;
+            max-height: max-content;
+        }
+    </style>
+</head>
+<body>
+    <fieldset id="dis">
+        <input type="text" value="entrer your text" id="hy" required>
+        <button onclick="fun()">click</button>
+        <p id="dd"></p>
+
+</fieldset>
+
+  
+    <script>
+        function fun(){
+            let x=document.getElementById('hy').value;
+            document.getElementById('dd').innerHTML=x;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des étudiants</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        
+        table th {
+            background-color: #f2f2f2;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Gestion des étudiants</h1>
+    <div>
+        <label for="studentId">ID Étudiant:</label>
+        <input type="text" id="studentId"><br>
+        <label for="studentName">Nom:</label>
+        <input type="text" id="studentName"><br>
+        <label for="studentFirstName">Prénom:</label>
+        <input type="text" id="studentFirstName"><br>
+        <label for="studentAge">Âge:</label>
+        <input type="text" id="studentAge"><br>
+        <label for="studentMatricule">Matricule:</label>
+        <input type="text" id="studentMatricule"><br>
+        <button onclick="addStudent()">Ajouter Étudiant</button>
+    </div>
+    <div>
+        <label for="searchInput">Rechercher:</label>
+        <input type="text" id="searchInput">
+        <button onclick="searchStudent()">Rechercher</button>
+    </div>
+    <div id="studentsTable"></div>
+
+    <script>
+        let students = [];
+
+        function addStudent() {
+            let id = document.getElementById('studentId').value;
+            let name = document.getElementById('studentName').value;
+            let firstName = document.getElementById('studentFirstName').value;
+            let age = document.getElementById('studentAge').value;
+            let matricule = document.getElementById('studentMatricule').value;
+            students.push({ id, name, firstName, age, matricule });
+            displayStudents();
+        }
+
+        function searchStudent() {
+            let searchValue = document.getElementById('searchInput').value;
+            let searchResults = students.filter(student =>
+                student.id.includes(searchValue) ||
+                student.name.includes(searchValue) ||
+                student.firstName.includes(searchValue) ||
+                student.matricule.includes(searchValue)
+            );
+            displayStudents(searchResults);
+        }
+
+        function displayStudents(studentList = students) {
+            let tableHTML = '<table border="1"><tr><th>ID</th><th>Nom</th><th>Prénom</th><th>Âge</th><th>Matricule</th><th>Action</th></tr>';
+            studentList.forEach(student => {
+                tableHTML += `<tr><td>${student.id}</td><td>${student.name}</td><td>${student.firstName}</td><td>${student.age}</td><td>${student.matricule}</td><td><button onclick="editStudent('${student.id}')">Modifier</button><button onclick="deleteStudent('${student.id}')">Supprimer</button></td></tr>`;
+            });
+            tableHTML += '</table>';
+            document.getElementById('studentsTable').innerHTML = tableHTML;
+        }
+
+        function editStudent(studentId) {
+            let student = students.find(student => student.id === studentId);
+            if (student) {
+                let newName = prompt('Entrez le nouveau nom:', student.name);
+                if (newName !== null) {
+                    student.name = newName;
+                }
+        
+                let newFirstName = prompt('Entrez le nouveau prénom:', student.firstName);
+                if (newFirstName !== null) {
+                    student.firstName = newFirstName;
+                }
+        
+                let newAge = prompt('Entrez le nouvel âge:', student.age);
+                if (newAge !== null) {
+                    student.age = newAge;
+                }
+        
+                let newMatricule = prompt('Entrez le nouveau matricule:', student.matricule);
+                if (newMatricule !== null) {
+                    student.matricule = newMatricule;
+                }
+        
+                displayStudents();
+            }
+        }
+        
+
+        function deleteStudent(studentId) {
+            students = students.filter(student => student.id !== studentId);
+            displayStudents();
+        }
+    </script>
+</body>
+</html>

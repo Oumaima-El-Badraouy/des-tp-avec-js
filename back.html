@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    .color{
+        color: aliceblue;
+        background-color: aqua;
+        width: max-content;
+        height: max-content;
+    }</style>
+</head>
+<body>
+    <input type="color" class="color-range"id='color-range'>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.color-range').change(function() {
+                $('body').css('background-color', $(this).val());
+            });
+        });
+    </script>
+    
+</body>
+</html>

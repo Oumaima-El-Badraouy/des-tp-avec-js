@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #text{
+            color: black;
+            width: 1000px;
+            height: 200px;
+        }
+        .btn{
+            color: aliceblue;
+            background-color: blue;
+            width: 60px;
+            height: 40px;
+        }
+        .cop {
+            display: none; /* Hide the "copied" message initially */
+        }
+        .bounce-effects {
+            /* Define your bounce effect CSS here */
+            animation: bounce 1s infinite; /* Example animation */
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Copy the text</h1>
+    <textarea id="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis itaque fuga at cum distinctio, quo ratione debitis sed veniam delectus?</textarea>
+    <button class="btn">Copy the text</button>
+    <span class="cop">Copied!!!</span>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> <!-- Include jQuery library -->
+    <script>
+        $(document).ready(function(){
+            function add(){
+                $('.cop').addClass('bounce-effects');
+            }
+            function remove(){
+                $('.cop').removeClass('bounce-effects');
+            }
+            $(".btn").click(function(){
+                $('#text').select(); // Select the textarea
+                document.execCommand('copy');
+                $('.cop').fadeIn(); // Show the "copied" message
+                add();
+                setTimeout(function(){
+                    $('.cop').fadeOut(); // Hide the "copied" message after 1 second
+                    remove();
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

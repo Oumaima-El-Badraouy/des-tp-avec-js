@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+          
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide">
+          <img src="image1.png" alt="Slide 1">
+        </div>
+        <div class="slide">
+          <img src="image2.png" alt="Slide 2">
+        </div>
+        <div class="slide">
+          <img src="image3.jpg" alt="Slide 3">
+        </div>
+      </div>
+      
+    <script>
+       let index=0;
+       slideshow();
+       function slideshow(){
+         let slides=document.querySelectorAll('.slide');
+         for(let i = 0;i <slides.length;i++){
+            slides[i].style.display='none';
+        }
+            index++;
+        if(index>slides.length){index=1}
+        slides[index-1].style.display='block';
+        setTimeout(slideshow,2000)
+         
+       }
+       
+    </script>
+</body>
+</html>

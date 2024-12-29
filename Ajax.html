@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture d'un fichier JSON</title>
+</head>
+<body>
+    <pre id="output"></pre>
+
+    <script>
+        var request = new XMLHttpRequest();
+
+        request.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                var data = JSON.parse(this.responseText);
+                displayData(data);
+            }
+        };
+
+        request.open('GET', 'C:\Users\omaim\OneDrive\partie2\project\jslearn\ofppt.json', true);
+        request.send();
+
+        function displayData(data) {
+            var outputElement = document.getElementById('output');
+            outputElement.textContent = JSON.stringify(data, null, 4);
+        }
+    </script>
+</body>
+</html>

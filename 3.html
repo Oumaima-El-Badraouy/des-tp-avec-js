@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset id="dis">
+        <input type="password"  id="myinput" required>
+        <button onclick="fun()" id="btn" data-text="show">show</button>
+</fieldset>
+<script>
+    let input=document.querySelector('#myinput');
+    let btn=document.querySelector('#btn');
+    function fun(){
+        if(btn.getAttribute('data-text')=="show"){
+            input.setAttribute('type','text');
+            btn.setAttribute('data-text',"hide");
+            btn.innerHTML='Hide'
+
+        }
+        else{
+                input.setAttribute('type',"password");
+                btn.setAttribute('data-text',"show");
+                btn.innerHTML='show'
+    
+            
+        }
+        
+    }
+
+</script>
+</body>
+</html>

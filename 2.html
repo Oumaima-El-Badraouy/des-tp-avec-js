@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            color: aliceblue;
+            background-color: chocolate;
+            width: 90px;
+            height:60px;
+            cursor: pointer;
+        }
+        .kj{
+            border: 1px black solid;
+            width: 300px;
+            height:300px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn" onclick="fun()">click</button>
+    <br><br><br>
+    <div class="kj"></div>
+    <script>
+        var colors=['black','blue','red']
+        let i=0
+        function fun(){
+            let x=document.querySelector('.kj').style.background=colors[i];
+            i++
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Créer un tableau</title>
+</head>
+<body>
+
+<h2>Créer un tableau</h2>
+
+<label for="rows">Nombre de lignes :</label>
+<input type="number" id="rows" min="1" value="1"><br><br>
+
+<label for="cols">Nombre de colonnes :</label>
+<input type="number" id="cols" min="1" value="1"><br><br>
+
+<button onclick="createTable()">Créer le tableau</button>
+
+<div id="tableContainer"></div>
+
+<script >
+    function createTable() {
+        // Récupérer les valeurs des input
+        var rows = parseInt(document.getElementById('rows').value);
+        var cols = parseInt(document.getElementById('cols').value);
+        
+        // Vérifier si les valeurs sont valides
+        if (isNaN(rows) || isNaN(cols) || rows < 1 || cols < 1) {
+          alert('Veuillez saisir des valeurs valides pour les lignes et les colonnes.');
+          return;
+        }
+        
+        // Créer le tableau HTML
+        var tableHTML = '<table border="1">';
+        for (var i = 0; i < rows; i++) {
+          tableHTML += '<tr>';
+          for (var j = 0; j < cols; j++) {
+            tableHTML += '<td>lighne' + '</td>';
+          }
+          tableHTML += '</tr>';
+        }
+        tableHTML += '</table>';
+        
+        // Afficher le tableau dans le conteneur
+        document.getElementById('tableContainer').innerHTML = tableHTML;
+      }
+      
+</script>
+
+</body>
+</html>
